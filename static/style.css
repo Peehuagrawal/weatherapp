@@ -1,0 +1,279 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    color: #0083b0;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #0083b0;
+    color: white;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00b4db;
+}
+
+.weather-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.weather-card h2 {
+    color: #0083b0;
+    margin-top: 0;
+}
+
+.weather-icon {
+    margin: 1rem 0;
+}
+
+.weather-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.temperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #666;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.additional-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.info-item {
+    flex-basis: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    color: #666;
+}
+
+.info-value {
+    font-weight: bold;
+}
+
+h3 {
+    color: #0083b0;
+    margin-top: 2rem;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.forecast-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-item .time {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.forecast-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.forecast-item .forecast-temp {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+/* ... (previous CSS rules) ... */
+
+/* Cloud Animation */
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: float linear infinite;
+}
+
+.cloud:before,
+.cloud:after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 120px;
+    height: 40px;
+    top: 25%;
+    animation-duration: 80s;
+}
+
+.cloud1:before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 10px;
+}
+
+.cloud1:after {
+    width: 80px;
+    height: 80px;
+    top: -45px;
+    right: 15px;
+}
+
+.cloud2 {
+    width: 200px;
+    height: 60px;
+    top: 50%;
+    animation-duration: 100s;
+}
+
+.cloud2:before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 15px;
+}
+
+.cloud2:after {
+    width: 100px;
+    height: 100px;
+    top: -55px;
+    right: 20px;
+}
+
+.cloud3 {
+    width: 150px;
+    height: 50px;
+    top: 75%;
+    animation-duration: 90s;
+}
+
+.cloud3:before {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 10px;
+}
+
+.cloud3:after {
+    width: 90px;
+    height: 90px;
+    top: -50px;
+    right: 15px;
+}
+
+.cloud4 {
+    width: 180px;
+    height: 55px;
+    top: 10%;
+    animation-duration: 110s;
+}
+
+.cloud4:before {
+    width: 75px;
+    height: 75px;
+    top: -37px;
+    left: 12px;
+}
+
+.cloud4:after {
+    width: 95px;
+    height: 95px;
+    top: -52px;
+    right: 18px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+/* Adjust container to have a white background */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* ... (other container styles) ... */
+}
+
+/* Adjust body background */
+body {
+    background: linear-gradient(to bottom, #87CEEB, #4682B4);
+    /* ... (other body styles) ... */
+}

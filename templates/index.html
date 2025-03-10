@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="clouds"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+    </div>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        
+        {% if weather %}
+            <div class="weather-card">
+                <h2>{{ weather.city }}</h2>
+                <div class="weather-icon">
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="{{ weather.description }}">
+                </div>
+                <p class="temperature">{{ weather.temperature }}°C</p>
+                <p class="description">{{ weather.description }}</p>
+                <div class="additional-info">
+                    <div class="info-item">
+                        <span class="info-label">Humidity:</span>
+                        <span class="info-value">{{ weather.humidity }}%</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Visibility:</span>
+                        <span class="info-value">{{ weather.visibility }} km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Pressure:</span>
+                        <span class="info-value">{{ weather.pressure }} hPa</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Feels like:</span>
+                        <span class="info-value">{{ weather.feels_like }}°C</span>
+                    </div>
+                </div>
+            </div>
+            
+            {% if forecast %}
+                <h3>Upcoming Forecast</h3>
+                <div class="forecast-container">
+                    {% for item in forecast %}
+                        <div class="forecast-item">
+                            <p class="time">{{ item.time }}</p>
+                            <img src="http://openweathermap.org/img/wn/{{ item.icon }}.png" alt="{{ item.description }}">
+                            <p class="forecast-temp">{{ item.temperature }}°C</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
